@@ -2,12 +2,22 @@
 using ComputerSystemIntegration.Domain;
 using RabbitMQ.Client;
 using System;
+using System.Threading;
 
 namespace Sender
 {
     class Program
     {
+        private static Timer timer;
         static void Main(string[] args)
+        {
+            timer = new Timer(GetData,null,0,10000);
+           
+            Console.WriteLine(" Press [enter] to exit.");
+            Console.ReadLine();
+        }
+
+        public static void GetData(object o)
         {
             Crawler creawler = new Crawler();
             var news = creawler.Crawl();
@@ -27,9 +37,6 @@ namespace Sender
                     Console.WriteLine(" [x] Sent {0}", item.Title);
                 }
             }
-
-            Console.WriteLine(" Press [enter] to exit.");
-            Console.ReadLine();
         }
     }
 }
