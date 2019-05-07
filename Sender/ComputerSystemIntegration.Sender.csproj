@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\ComputerSystemIntegration.DataAccess\ComputerSystemIntegration.DataAccess.csproj" />
     <ProjectReference Include="..\ComputerSystemIntegration.Domain\ComputerSystemIntegration.Domain.csproj" />
     <ProjectReference Include="..\WebDriver\ComputerSystemIntegration.DataRetriver.csproj" />
   </ItemGroup>

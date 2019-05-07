@@ -1,5 +1,5 @@
-﻿using ComputerSystemIntegration.DataRetriver;
-using ComputerSystemIntegration.Domain;
+﻿using ComputerSystemIntegration.Domain;
+using ComputerSystemIntegration.DataRetriver;
 using RabbitMQ.Client;
 using System;
 using System.Threading;
@@ -11,13 +11,13 @@ namespace Sender
         private static Timer timer;
         static void Main(string[] args)
         {
-            timer = new Timer(GetData,null,0,10000);
-           
+            //  timer = new Timer(SendData,null,0,5000);
+            SendData(null);
             Console.WriteLine(" Press [enter] to exit.");
             Console.ReadLine();
         }
 
-        public static void GetData(object o)
+        public static void SendData(object o)
         {
             Crawler creawler = new Crawler();
             var news = creawler.Crawl();

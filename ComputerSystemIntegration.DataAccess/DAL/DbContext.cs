@@ -12,11 +12,12 @@ namespace ComputerSystemIntegration.DataAccess.DAL
             if (client != null)
                 database = client.GetDatabase(config.Database);
         }
-        public IMongoCollection<NewsEntity> News
+
+        public IMongoCollection<VacancyEntity> Vacancies
         {
             get
             {
-                return database.GetCollection<NewsEntity>("news");
+                return database.GetCollection<VacancyEntity>("vacancies");
             }
         }
     }

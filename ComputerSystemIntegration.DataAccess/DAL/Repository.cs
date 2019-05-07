@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
-using ComputerSystemIntegration.Domain.Interfaces;
 using ComputerSystemIntegration.Domain.Models;
 using MongoDB.Driver;
 
 namespace ComputerSystemIntegration.DataAccess.DAL
 {
-    public class Repository<T> : IRepository<T> where T : BaseEntity
+    public class Repository : IRepository
     {
         private readonly DbContext context;
         private readonly IMapper mapper;
@@ -18,11 +18,19 @@ namespace ComputerSystemIntegration.DataAccess.DAL
             this.mapper = mapper;
         }
 
-        public async Task AddNew(T entity)
+        public async Task AddNew(Vacancy entity)
         {
             try
             {
-                await context.News.InsertOneAsync(mapper.Map<NewsEntity>(entity));//??? 
+                if (await Find(entity) == null)
+                {
+                    await context.Vacancies.InsertOneAsync(mapper.Map<VacancyEntity>(entity));
+                }
+                else
+                {
+                    return;
+                }
+                
             }
             catch (Exception ex)
             {
@@ -30,10 +38,18 @@ namespace ComputerSystemIntegration.DataAccess.DAL
             }
         }
 
-        public async Task<ICollection<T>> GetAllAsync()
+        public async Task<Vacancy> Find(Vacancy vacancy)
         {
-            var documents = await context.News.Find(_ => true).ToListAsync();
-            return mapper.Map<ICollection<T>>(documents);
+            var documents = await context.Vacancies.Find(v => v.Description == vacancy.Description).ToListAsync();
+            var findDocument = documents.FirstOrDefault();
+
+            return findDocument != null ? mapper.Map<Vacancy>(findDocument) : null;
+        }
+
+        public async Task<IList<Vacancy>> GetAllAsync()
+        {
+            var documents = await context.Vacancies.Find(_ => true).ToListAsync();
+            return mapper.Map<IList<Vacancy>>(documents);
         }
     }
 }

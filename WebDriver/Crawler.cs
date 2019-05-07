@@ -5,8 +5,6 @@ using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace ComputerSystemIntegration.DataRetriver
 {
@@ -15,7 +13,7 @@ namespace ComputerSystemIntegration.DataRetriver
         static readonly string englishLanguageUrl = "https://djinni.co/set_lang?code=en&next=/jobs/";
         static readonly string dotNetJobFilterUrl = "https://djinni.co/jobs/?primary_keyword=.NET";
 
-        public IEnumerable<News> Crawl()
+        public IEnumerable<Vacancy> Crawl()
         {
             
             string homeUrl = "https://djinni.co/jobs/?location=%D0%9B%D1%8C%D0%B2%D0%BE%D0%B2&primary_keyword=.NET";
@@ -32,8 +30,8 @@ namespace ComputerSystemIntegration.DataRetriver
 
             var elements = driver.FindElements(By.CssSelector("li.list-jobs__item"));
 
-            List<News> news = elements
-                .Select(el => new News
+            List<Vacancy> news = elements
+                .Select(el => new Vacancy
                 {
                     Description = el.FindElement(By.CssSelector(".list-jobs__description p")).Text,
                     Title = el.FindElement(By.CssSelector(".list-jobs__title a")).Text,
