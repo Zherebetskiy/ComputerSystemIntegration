@@ -9,9 +9,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComputerSystemIntegration.S
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComputerSystemIntegration.Domain", "ComputerSystemIntegration.Domain\ComputerSystemIntegration.Domain.csproj", "{C7130B25-9088-4997-8ED6-2F406C2F639D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComputerSystemIntegration.DataRetriver", "WebDriver\ComputerSystemIntegration.DataRetriver.csproj", "{18FBA42C-765B-4AE2-AD63-19F1C2355029}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComputerSystemIntegration.DataRetriver", "WebDriver\ComputerSystemIntegration.DataRetriver.csproj", "{18FBA42C-765B-4AE2-AD63-19F1C2355029}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComputerSystemIntegration.DataAccess", "ComputerSystemIntegration.DataAccess\ComputerSystemIntegration.DataAccess.csproj", "{3D334D03-B65E-4E0D-8BFE-5A6A6F3327A6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComputerSystemIntegration.DataAccess", "ComputerSystemIntegration.DataAccess\ComputerSystemIntegration.DataAccess.csproj", "{3D334D03-B65E-4E0D-8BFE-5A6A6F3327A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComputerSystemIntegration.GraphQLAPI", "ComputerSystemIntegration.GraphQLAPI\ComputerSystemIntegration.GraphQLAPI.csproj", "{9036D25F-DD14-4DB6-9B10-6354CB7879F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,6 +41,10 @@ Global
 		{3D334D03-B65E-4E0D-8BFE-5A6A6F3327A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D334D03-B65E-4E0D-8BFE-5A6A6F3327A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3D334D03-B65E-4E0D-8BFE-5A6A6F3327A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9036D25F-DD14-4DB6-9B10-6354CB7879F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9036D25F-DD14-4DB6-9B10-6354CB7879F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9036D25F-DD14-4DB6-9B10-6354CB7879F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9036D25F-DD14-4DB6-9B10-6354CB7879F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
