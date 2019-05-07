@@ -1,8 +1,6 @@
-﻿using System;
-
-namespace ComputerSystemIntegration.Domain.Models
+﻿namespace ComputerSystemIntegration.DataRetriver
 {
-    public class News : BaseEntity
+    public class News
     {
         public string Author { get; set; }
         public string PublishDate { get; set; }
